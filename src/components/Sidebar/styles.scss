@@ -1,0 +1,36 @@
+.sidebar {
+    background-color: #F9FAFC;
+    height: 100%;
+}
+
+.sidebar-file-display {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'lato';
+    list-style-type: none;
+    color: #2F363F;
+    padding: 1em 3.75em;
+    padding-bottom: 1em;
+    cursor: pointer;
+}
+
+.root {
+    color: #AFB2B6;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-folder-display {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-row-gap: 10px;
+    justify-content: center;
+    justify-self: center;
+}
+
+.height-100{
+    height: 100vh;
+}

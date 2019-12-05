@@ -20,3 +20,8 @@
 .App-link {
   color: #09d3ac;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}

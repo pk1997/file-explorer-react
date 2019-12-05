@@ -1,0 +1,66 @@
+.fileview {
+    background-color: #ffffff;
+    padding: 1em;
+    font-family: 'lato';
+}
+
+.grid-folder {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+}
+
+.path {
+    padding: 0.3125rem;
+    color: #81878C;
+    font-size: 24px;
+}
+
+.file-options {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background: white;
+    width: 159px;
+    height: 145px;
+    z-index: 1000;
+    border: 1px solid rgba(221, 224, 228, 0.5);
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+
+    & .content {
+        padding: 15px;
+        transition: background 250ms ease-in;
+
+        &:hover {
+            background: #eeeff1;
+        }
+    }
+}
+
+.options {
+    height: 48px;
+    border-radius: 3px;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.options:hover {
+    background-color: #EEEFF1;
+}
+
+.delete {
+    color: #FF5942;
+}
+
+.folder-display {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'lato';
+    color: #2F363F;
+    padding: 1em 3.75em;
+    padding-bottom: 1em;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
