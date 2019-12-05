@@ -11,6 +11,7 @@ export default function folderView({ children, updateFileSystem, fileSystem }) {
             <div className='folder-display' value={key} onDoubleClick={() =>
                 changePath(children[key].path, updateFileSystem, fileSystem)}>
                 <Icon
+                    changePath={changePath}
                     child={children[key]}
                 />
             </div>

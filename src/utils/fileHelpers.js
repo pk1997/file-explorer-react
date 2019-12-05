@@ -23,3 +23,15 @@ export const changePath = (path, updateFileSystem, fileSystem) => {
     history.push(path)
     updateFileSystem(filterFileSystemAccordingToPath(path, fileSystem), fileSystem)
 }
+
+export const getKeyByValue = (object, value) => {
+    return Object.keys(object).find(key => object[key] === value);
+}
+export const deleteFolder = (child, fileSystem) => {
+    const key = getKeyByValue(fileSystem, child)
+    let childrenArrayOfParentFolder = fileSystem[child.parent].children
+    let arrayOfChildrenAfterDeleting = childrenArrayOfParentFolder.filter(e => e !== key)
+    fileSystem[child.parent].children = arrayOfChildrenAfterDeleting
+    delete fileSystem[key]
+    return fileSystem
+}

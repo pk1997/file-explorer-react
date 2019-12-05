@@ -1,4 +1,4 @@
-import { ADD_FILE, DELETE_FILE, UPDATE_CURRENT_FILE_SYSTEM, UPDATE_CHILDREN } from '../actions/types'
+import { ADD_FILE, DELETE_FILE, UPDATE_CURRENT_FILE_SYSTEM, UPDATE_CHILDREN, UPDATE_FILE_SYSTEM } from '../actions/types'
 import { fileSystem } from '../utils/dummyFileStructure'
 
 const initialState = {
@@ -18,6 +18,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 children: action.payload
+            }
+        case UPDATE_FILE_SYSTEM:
+            return {
+                ...state,
+                fileSystem: action.payload
             }
         default:
             return initialState;

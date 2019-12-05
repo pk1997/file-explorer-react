@@ -6,6 +6,7 @@ export let fileSystem = {
         createdBy: 'root',
         createdOn: NOTAPPLICABLE,
         parent: '5848',
+        size: '500kb',
         children: ['1139', '1138', '1137', '1136', '1135', '1134'],
         path: '/',
     },
@@ -16,6 +17,7 @@ export let fileSystem = {
         createdOn: '28-12-2019',
         parent: '5848',
         children: [],
+        size: '500kb',
         path: '/apps'
     },
     '1138': {
@@ -25,6 +27,7 @@ export let fileSystem = {
         createdOn: '28-12-2019',
         parent: '5848',
         children: [],
+        size: '500kb',
         path: '/pictures'
     },
     '1137': {
@@ -34,6 +37,7 @@ export let fileSystem = {
         createdOn: '28-12-2019',
         parent: '5848',
         children: [],
+        size: '500kb',
         path: '/videos'
     },
     '1136': {
@@ -42,6 +46,7 @@ export let fileSystem = {
         createdBy: 'superman',
         createdOn: '28-12-2019',
         parent: '5848',
+        size: '500kb',
         children: ['1133', '1132', '1131'],
         path: '/docs'
     },
@@ -52,6 +57,7 @@ export let fileSystem = {
         createdOn: '28-12-2019',
         parent: '5848',
         children: [],
+        size: '500kb',
         path: '/a.pdf'
     },
     '1134': {
@@ -61,6 +67,7 @@ export let fileSystem = {
         createdOn: '28-12-2019',
         parent: '5848',
         children: [],
+        size: '500kb',
         path: '/b.jpeg'
     },
     '1133': {
@@ -69,6 +76,7 @@ export let fileSystem = {
         createdBy: 'superman',
         createdOn: '28-12-2019',
         parent: '1136',
+        size: '500kb',
         children: ['1130', '1129'],
         path: '/docs/work'
     },
@@ -79,6 +87,7 @@ export let fileSystem = {
         createdOn: '28-12-2019',
         parent: '1136',
         children: [],
+        size: '500kb',
         path: '/docs/c.pdf'
     },
     '1131': {
@@ -88,6 +97,7 @@ export let fileSystem = {
         createdOn: '28-12-2019',
         parent: '1136',
         children: [],
+        size: '500kb',
         path: '/docs/d.docx'
     },
     '1130': {
@@ -97,6 +107,7 @@ export let fileSystem = {
         createdOn: '28-12-2019',
         parent: '1133',
         children: [],
+        size: '500kb',
         path: '/docs/work/e.pdf'
     },
     '1129': {
@@ -106,6 +117,7 @@ export let fileSystem = {
         createdOn: '28-12-2019',
         parent: '1133',
         children: [],
+        size: '500kb',
         path: '/docs/d.docx'
     },
 

@@ -15,6 +15,16 @@
     font-size: 24px;
 }
 
+.file-icon {
+    span {
+        margin: 1em;
+    }
+}
+
+.file-icon:hover {
+    background-color: #E6F5FF;
+}
+
 .file-options {
     display: flex;
     flex-direction: column;
@@ -61,6 +71,48 @@
     padding-bottom: 1em;
 }
 
-.cursor-pointer{
+.cursor-pointer {
     cursor: pointer;
+}
+
+.file-info {
+    padding: 1em;
+    width: 316px;
+    height: 395px;
+
+    .title {
+        display: grid;
+        grid-template-columns: 1000fr 1fr;
+        color: #2F363F;
+        font-size: 18px;
+        text-align: center;
+
+        div {
+            justify-self: end;
+        }
+    }
+
+    .icon {
+        width: 96px;
+        height: 96px;
+        margin: 50px auto;
+    }
+
+    .flex {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        font-size: 16px;
+        justify-content: space-around;
+        color: #81878C;
+
+        p {
+            padding: 0 0.5em;
+        }
+
+        .label {
+            color: #2F363F;
+            justify-self: end;
+        }
+    }
+
 }

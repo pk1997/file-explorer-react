@@ -1,8 +1,12 @@
 import React, { createRef, Component } from 'react'
 import { FOLDER_ICON_LINK, FILE_ICON_LINK, FILETYPES } from '../../utils/constants'
 import FileOptionsMenu from './fileOptionsMenu'
-
-export default class icon extends Component {
+import { deleteFolder } from '../../utils/fileHelpers'
+import { filterFileSystemAccordingToPath } from '../../utils/fileHelpers'
+import { connect } from 'react-redux'
+import FileInfo from './fileInfo'
+import { updateFileSystem, updateCurrentFileSystem } from '../../actions/file.actions'
+class icon extends Component {
     nodeRef = createRef();
 
     constructor(props) {
@@ -107,13 +111,25 @@ export default class icon extends Component {
             });
     };
 
+    updateShowInfo = (state) => {
+        this.setState({
+            showInfo: state
+        })
+    }
+
+    delete = (child, fileSystem) => {
+        let newFileSystem = deleteFolder(child, fileSystem)
+        this.props.updateFileSystem(newFileSystem)
+        this.props.updateCurrentFileSystem(filterFileSystemAccordingToPath(window.location.pathname, newFileSystem), newFileSystem)
+    }
+
     render() {
-        const { child } = this.props
+        const { child, updateCurrentFileSystem, fileSystem } = this.props
         const { style, visible, showInfo } = this.state
         return (
             <div ref={this.nodeRef}>
-                <div className='flex-column cursor-pointer'>
-                    <span>
+                <div className='flex-column cursor-pointer file-icon'>
+                    <span className='margin'>
                         <img alt="FOLDER" src={child.type === FILETYPES.folder ? FOLDER_ICON_LINK : FILE_ICON_LINK}
                             width="69.2" height="55.9" />
                     </span>
@@ -121,12 +137,40 @@ export default class icon extends Component {
                 </div>
                 {visible && (
                     <FileOptionsMenu
-                        style={style}
+                        fileSystem={fileSystem}
+                        updateCurrentFileSystem={updateCurrentFileSystem}
                         child={child}
+                        style={style}
+                        updateShowInfo={this.updateShowInfo}
+                        deleteFolder={this.delete}
                     />
                 )
                 }
+
+                {showInfo && (
+                    <FileInfo
+                        child={child}
+                        updateShowInfo={this.updateShowInfo}
+                        style={this.state.prevStyle}
+                    />
+                )}
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        fileSystem: state.files.fileSystem ? state.files.fileSystem : null,
+        currentFileSystem: state.files.currentFileSystem ? state.files.currentFileSystem : null,
+        children: state.files.children ? state.files.children : null
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    updateFileSystem: (fileSystem) => dispatch(updateFileSystem(fileSystem)),
+    updateCurrentFileSystem: (filteredFileSystem, fileSystem) => dispatch(updateCurrentFileSystem(filteredFileSystem, fileSystem))
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(icon);

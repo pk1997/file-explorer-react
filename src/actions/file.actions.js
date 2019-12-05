@@ -1,4 +1,9 @@
-import { ADD_FILE, DELETE_FILE, UPDATE_CURRENT_FILE_SYSTEM, UPDATE_CHILDREN } from './types';
+import {
+    ADD_FILE, DELETE_FILE,
+    UPDATE_CURRENT_FILE_SYSTEM,
+    UPDATE_CHILDREN,
+    UPDATE_FILE_SYSTEM
+} from './types';
 import { getChildren } from '../utils/fileHelpers'
 
 export const addFile = (fileData) => dispatch => {
@@ -16,7 +21,6 @@ export const deleteFile = (fileData) => dispatch => {
 }
 
 export const updateCurrentFileSystem = (filteredFileSystem, fileSystem) => dispatch => {
-
     dispatch({
         type: UPDATE_CURRENT_FILE_SYSTEM,
         payload: filteredFileSystem
@@ -24,5 +28,12 @@ export const updateCurrentFileSystem = (filteredFileSystem, fileSystem) => dispa
     dispatch({
         type: UPDATE_CHILDREN,
         payload: filteredFileSystem ? getChildren(filteredFileSystem.children, fileSystem) : null
+    })
+}
+
+export const updateFileSystem = (newFileSystem) => dispatch => {
+    dispatch({
+        type: UPDATE_FILE_SYSTEM,
+        payload: newFileSystem
     })
 }
