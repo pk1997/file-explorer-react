@@ -1,10 +1,10 @@
-import React, { createRef } from 'react'
-import { ADD_FILE_ICON_LINK } from '../../utils/constants'
+import React from 'react';
 import { changePath } from '../../utils/fileHelpers'
 import Icon from './icon'
+import AddFile from './addFileForm';
 
 
-export default function folderView({ children, updateFileSystem, fileSystem }) {
+export default function FolderView({ children, updateFileSystem, fileSystem }) {
     let files = null
     if (children) {
         files = Object.keys(children).map(key =>
@@ -18,12 +18,14 @@ export default function folderView({ children, updateFileSystem, fileSystem }) {
         )
     }
     return (
-        files && <div className='main-folder-display'>
-            {files}
-            <center><span>
-                <img alt="FOLDER" src={ADD_FILE_ICON_LINK}
-                    width="96" height="113" />
-            </span></center>
+        <div>
+            {files && (<div className='main-folder-display'>
+                {files}
+                <center>
+                    <AddFile />
+                </center>
+            </div>)}
+
         </div>
     )
 }

@@ -2,7 +2,8 @@ import {
     ADD_FILE, DELETE_FILE,
     UPDATE_CURRENT_FILE_SYSTEM,
     UPDATE_CHILDREN,
-    UPDATE_FILE_SYSTEM
+    UPDATE_FILE_SYSTEM,
+    CREATE_NEW_FOLDER
 } from './types';
 import { getChildren } from '../utils/fileHelpers'
 

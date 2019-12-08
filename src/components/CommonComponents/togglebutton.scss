@@ -1,0 +1,28 @@
+.toggle-button {
+
+    .button-1 {
+        border-radius: 0px;
+        width: 64px !important;
+        border: 0px;
+        padding: 0;
+        margin: 0;
+        justify-self: end !important;
+        border-radius: 8px 0px 0px 8px;
+    }
+
+    .button-2 {
+        border: 0px;
+        border-radius: 0px;
+        width: 64px !important;
+        padding: 0;
+        margin: 0;
+        border-radius: 0px 8px 8px 0px;
+    }
+
+    .toggle-inactive {
+        transition: background-color 0.3s ease;
+        color: black;
+        background-color: white;
+        border: 1px solid #DDE0E4;
+    }
+}

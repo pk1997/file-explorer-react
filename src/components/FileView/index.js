@@ -7,12 +7,26 @@ import './styles.scss'
 import { updateCurrentFileSystem } from '../../actions/file.actions'
 
 class index extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showAddFileModal: false
+        }
+    }
+
     static propTypes = {
         prop: PropTypes
     }
 
+    setAddFileModalState = (showAddFileModal) => {
+        this.setState({
+            showAddFileModal
+        })
+    }
+
     render() {
         const { children, fileSystem, updateCurrentFileSystem, currentFileSystem } = this.props
+        const { showAddFileModal } = this.state;
         return (
             currentFileSystem &&
             <div className='fileview'>
@@ -23,6 +37,8 @@ class index extends Component {
                     updateFileSystem={updateCurrentFileSystem}
                 />
                 <FolderView
+                    showAddFileModal={showAddFileModal}
+                    setAddFileModalState={this.setAddFileModalState}
                     fileSystem={fileSystem}
                     children={children}
                     updateFileSystem={updateCurrentFileSystem}

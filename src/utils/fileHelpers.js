@@ -10,13 +10,11 @@ export const filterFileSystemAccordingToPath = (path = '/', fileSystem) => {
 }
 
 export const getChildren = (childrenId, fileSystem) => {
-    const filtered = Object.keys(fileSystem)
-        .filter(key => childrenId.includes(key))
-        .reduce((obj, key) => {
-            obj[key] = fileSystem[key];
-            return obj;
-        }, {});
-    return filtered
+    let children = {}
+    childrenId.forEach(value => {
+        children[value] = fileSystem[value]
+    })
+    return children
 }
 
 export const changePath = (path, updateFileSystem, fileSystem) => {
@@ -27,6 +25,7 @@ export const changePath = (path, updateFileSystem, fileSystem) => {
 export const getKeyByValue = (object, value) => {
     return Object.keys(object).find(key => object[key] === value);
 }
+
 export const deleteFolder = (child, fileSystem) => {
     const key = getKeyByValue(fileSystem, child)
     let childrenArrayOfParentFolder = fileSystem[child.parent].children
@@ -34,4 +33,25 @@ export const deleteFolder = (child, fileSystem) => {
     fileSystem[child.parent].children = arrayOfChildrenAfterDeleting
     delete fileSystem[key]
     return fileSystem
+}
+
+export const createNewFolder = (parent, data, fileSystem) => {
+    let key = Math.floor((Math.random() * 10000) + 1)
+    while (fileSystem[key]) {
+        key = toString(Math.floor((Math.random() * 10000) + 1))
+    }
+    let folderData = {
+        name: data.name,
+        type: data.type,
+        createdBy: data.creator,
+        createdOn: data.date,
+        parent: parent,
+        children: [],
+        size: data.size,
+        path: fileSystem[parent].path === '/' ? `${fileSystem[parent].path}${data.name}` : `${fileSystem[parent].path}/${data.name}`,
+    }
+    let newFileSystem = fileSystem;
+    newFileSystem[parent].children.push(key)
+    newFileSystem[key] = folderData
+    return newFileSystem
 }
